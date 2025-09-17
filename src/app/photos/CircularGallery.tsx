@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 interface CircularGalleryProps {
   bend?: number;
@@ -9,7 +10,6 @@ interface CircularGalleryProps {
 
 const CircularGallery: React.FC<CircularGalleryProps> = ({
   bend = 3,
-  textColor = "#ffffff",
   borderRadius = 0.05,
   scrollEase = 0.02
 }) => {
@@ -53,7 +53,7 @@ const CircularGallery: React.FC<CircularGalleryProps> = ({
         const z = Math.sin(angle) * radius;
         
         (item as HTMLElement).style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
-        (item as HTMLElement).style.opacity = (z + radius) / (radius * 2);
+        (item as HTMLElement).style.opacity = String((z + radius) / (radius * 2));
       });
       
       requestAnimationFrame(animate);
@@ -94,9 +94,11 @@ const CircularGallery: React.FC<CircularGalleryProps> = ({
             cursor: 'pointer',
           }}
         >
-          <img
+          <Image
             src={image}
             alt={`Gallery image ${index + 1}`}
+            width={120}
+            height={120}
             style={{
               width: '100%',
               height: '100%',

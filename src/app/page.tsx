@@ -2,6 +2,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const [hearts, setHearts] = useState<{ id: number; left: string }[]>([]);
@@ -35,43 +37,45 @@ export default function Home() {
       {/* White header border with navigation */}
       <div className="w-full h-24 bg-white border-b-4 border-pink-300 shadow-lg flex items-center justify-center">
         <nav className="flex justify-center space-x-16">
-          <a
+          <Link
             href="/"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="/photos"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Photos
-          </a>
-          <a
+          </Link>
+          <Link
             href="/comments"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Comments
-          </a>
-          <a
+          </Link>
+          <Link
             href="/contact"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Contact Him
-          </a>
-          <a
+          </Link>
+          <Link
             href="/harshita-ai"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Harshita AI
-          </a>
+          </Link>
         </nav>
       </div>
       
       {/* Love Arrow GIF at top left */}
-      <img
+      <Image
         src="/lovearrow.gif"
         alt="Love Arrow"
+        width={128}
+        height={128}
         className="absolute left-4 top-28 w-24 h-24 md:w-32 md:h-32 z-20 select-none pointer-events-none"
         style={{ objectFit: 'contain' }}
       />
@@ -94,9 +98,11 @@ export default function Home() {
             We Love You Harshul
           </span>
         </div>
-        <img
+        <Image
           src="/harshul.jpg"
           alt="Harshul"
+          width={224}
+          height={224}
           className="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border-8 border-pink-300 shadow-xl mb-6 mt-2"
         />
         {/* Main Content */}

@@ -2,6 +2,8 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Link from "next/link";
+import Image from "next/image";
 
 const contacts = [
   {
@@ -53,36 +55,36 @@ export default function ContactPage() {
       {/* White header border with navigation */}
       <div className="w-full h-24 bg-white border-b-4 border-pink-300 shadow-lg flex items-center justify-center">
         <nav className="flex justify-center space-x-16">
-          <a
+          <Link
             href="/"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="/photos"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Photos
-          </a>
-          <a
+          </Link>
+          <Link
             href="/comments"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Comments
-          </a>
-          <a
+          </Link>
+          <Link
             href="/contact"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Contact Him
-          </a>
-          <a
+          </Link>
+          <Link
             href="/harshita-ai"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Harshita AI
-          </a>
+          </Link>
         </nav>
       </div>
       <main className="relative min-h-screen bg-gradient-to-b from-pink-100 to-pink-300 flex flex-col items-center justify-center overflow-hidden">
@@ -112,11 +114,15 @@ export default function ContactPage() {
             <div className="flex flex-col space-y-8 mt-4 w-full max-w-md">
               {contacts.map((c, i) => (
                 <div key={i} className="flex items-center space-x-6">
-                  <img
-                    src={c.icon === "emoji-earth" ? undefined : c.icon}
-                    alt={c.label + " icon"}
-                    className={c.icon === "emoji-earth" ? "hidden" : "w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md"}
-                  />
+                  {c.icon !== "emoji-earth" && (
+                    <Image
+                      src={c.icon}
+                      alt={c.label + " icon"}
+                      width={64}
+                      height={64}
+                      className="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md"
+                    />
+                  )}
                   {c.icon === "emoji-earth" && (
                     <span className="text-5xl md:text-6xl mr-2 select-none">🌍</span>
                   )}

@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Link from "next/link";
 import CircularGallery from './CircularGallery';
 
 interface HeartPosition {
@@ -30,36 +31,36 @@ export default function PhotosPage() {
       {/* White header border with navigation */}
       <div className="w-full h-24 bg-white border-b-4 border-pink-300 shadow-lg flex items-center justify-center">
         <nav className="flex justify-center space-x-16">
-          <a
+          <Link
             href="/"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="/photos"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Photos
-          </a>
-          <a
+          </Link>
+          <Link
             href="/comments"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Comments
-          </a>
-          <a
+          </Link>
+          <Link
             href="/contact"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Contact Him
-          </a>
-          <a
+          </Link>
+          <Link
             href="/harshita-ai"
             className="text-2xl font-bold text-pink-700 hover:text-pink-900 transition-colors duration-300"
           >
             Harshita AI
-          </a>
+          </Link>
         </nav>
       </div>
       <main className="relative min-h-screen bg-gradient-to-b from-pink-100 to-pink-300 flex flex-col items-center justify-center overflow-hidden">
